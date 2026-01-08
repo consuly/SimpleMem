@@ -333,7 +333,7 @@ We would like to thank the following projects and teams:
 
 - 🔍 **Embedding Model**: [Qwen3-Embedding](https://github.com/QwenLM/Qwen) - State-of-the-art retrieval performance
 - 🗄️ **Vector Database**: [LanceDB](https://lancedb.com/) - High-performance columnar storage
-- 📊 **Benchmark**: [LoCoMo](https://github.com/yale-nlp/LoCoMo) - Long-context memory evaluation framework
+- 📊 **Benchmark**: [LoCoMo](https://github.com/snap-research/locomo) - Long-context memory evaluation framework
 
 
 
