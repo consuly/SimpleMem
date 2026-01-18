@@ -28,7 +28,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Railway provides the PORT environment variable.
 # The run.py script accepts --port argument.
-ENV PORT=8000
+# 8080 is a standard port for web services in containers.
+ENV PORT=8080
 ENV HOST=0.0.0.0
 
 # Expose the port (informative only for Railway)
