@@ -22,7 +22,7 @@
 - **[01/19/2026]** **Added Local Memory Storage for SimpleMem Skill!** 💾 SimpleMem Skill now supports local memory storage, enabling seamless memory retention and management directly within Claude Skills.
 - **[01/18/2026]** **SimpleMem now supports Claude Skills!** 🚀 Use SimpleMem in claude.ai to remember long-term information and project history across conversations. Register at [mcp.simplemem.cloud](https://mcp.simplemem.cloud), add the domain to Claude's network whitelist, **configure with your token in the skill file**, and import the skill!
 - **[01/14/2026]** **SimpleMem MCP Server is now LIVE and Open Source!** 🎉 Experience SimpleMem as a cloud-hosted memory service at [mcp.simplemem.cloud](https://mcp.simplemem.cloud). Easily integrate with your favorite chat platforms (LM Studio, Cherry Studio) and AI agents (Cursor, Claude Desktop) using the **Streamable HTTP** MCP protocol. The MCP implementation features production-ready optimizations including multi-tenant user isolation, faster response times, and enhanced security. [View MCP Documentation →](MCP/README.md)
-- **[01/08/2026]** We've set up a Discord server and WeChat group to make it easier to collaborate and exchange ideas on this project. Welcome to join the Group to share your thoughts, ask questions, or contribute your ideas! 🔥 Join our [Discord](https://discord.gg/KA2zC32M) and [WeChat Group](fig/wechat_logo2.jpg) Now!
+- **[01/08/2026]** We've set up a Discord server and WeChat group to make it easier to collaborate and exchange ideas on this project. Welcome to join the Group to share your thoughts, ask questions, or contribute your ideas! 🔥 Join our [Discord](https://discord.gg/KA2zC32M) and [WeChat Group](fig/wechat_logo3.JPG) Now!
 - **[01/05/2026]** SimpleMem paper was released on [arXiv](https://arxiv.org/abs/2601.02553)!
 
 ---
@@ -211,7 +211,12 @@ $$k_{dyn} = \lfloor k_{base} \cdot (1 + \delta \cdot C_q) \rfloor$$
 ---
 
 ## 📦 Installation
+### 📝 Notes for First-Time Users
 
+- Ensure you are using **Python 3.10 in your active environment**, not just installed globally.
+- An OpenAI-compatible API key must be configured **before running any memory construction or retrieval**, otherwise initialization may fail.
+- When using non-OpenAI providers (e.g., Qwen or Azure OpenAI), verify both the model name and `OPENAI_BASE_URL` in `config.py`.
+- For large dialogue datasets, enabling parallel processing can significantly reduce memory construction time.
 ### 📋 Requirements
 - 🐍 Python 3.10
 - 🔑 OpenAI-compatible API (OpenAI, Qwen, Azure OpenAI, etc.)
@@ -245,6 +250,31 @@ EMBEDDING_MODEL = "Qwen/Qwen3-Embedding-0.6B"  # State-of-the-art retrieval
 ---
 
 ## ⚡ Quick Start
+### 🧠 Understanding the Basic Workflow
+
+At a high level, SimpleMem works as a long-term memory system for LLM-based agents. 
+The workflow consists of three simple steps:
+
+1. **Store information** – Dialogues or facts are processed and converted into structured, atomic memories.
+2. **Index memory** – Stored memories are organized using semantic embeddings and structured metadata.
+3. **Retrieve relevant memory** – When a query is made, SimpleMem retrieves the most relevant stored information based on meaning rather than keywords.
+
+This design allows LLM agents to maintain context, recall past information efficiently, and avoid repeatedly processing redundant history.
+
+## ❓ Common Setup Issues & Troubleshooting
+
+If you encounter issues while setting up or running SimpleMem for the first time, check the following common cases:
+
+### 1️⃣ API Key Not Detected
+- Ensure your API key is correctly set in `config.py`
+- For OpenAI-compatible providers (Qwen, Azure, etc.), verify that `OPENAI_BASE_URL` is configured correctly
+- Restart your Python environment after updating the key
+
+### 2️⃣ Python Version Mismatch
+- SimpleMem requires **Python 3.10**
+- Check your version using:
+  ```bash
+  python --version
 
 ### 🎓 Basic Usage
 
